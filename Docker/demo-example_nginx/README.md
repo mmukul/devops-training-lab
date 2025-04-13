@@ -2,6 +2,14 @@
 
 docker build -t smilemukul/nginx-demo:v1.0 .
 
+## Open the port permanently by specifying the port number and protocol
+
+firewall-cmd --permanent --add-port=8081/tcp
+
+## Reload Firewalld to apply changes
+
+firewall-cmd --reload
+
 ## Build and deploy the container
 
 docker run -d --name <name-container> -p 8081:80 <new_image_name:tag>
