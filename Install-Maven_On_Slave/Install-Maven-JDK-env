@@ -2,19 +2,33 @@
 
 ### Run on Jenkins Slave using CLI on Linux Terminal ###
 
+## Java
 
-cd /opt && wget http://mirrors.ibiblio.org/apache/maven/maven-4/4.0.0-rc-5/binaries/apache-maven-4.0.0-rc-5-bin.tar.gz
-mkdir -p /usr/local/apache-maven
-tar -xvf apache-maven-4.0.0-rc-5.tar.gz -C /usr/local/apache-maven/
+sudo yum install java-17-openjdk -y
+readlink -f $(which java)
 
-cat <<EOF | sudo tee /root/.bashrc
-export MAVEN_HOME=/usr/local/apache-maven/apache-maven-4.0.0-rc-5
-export MAVEN=$MAVEN_HOME/bin 
-export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-17-hotspot
-export PATH=$MAVEN:$JAVA_HOME:$PATH
+cat <<EOF | sudo tee /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export PATH=$PATH:$JAVA_HOME/bin
 EOF
 
-source ~/.bashrc
+source /etc/profile.d/java.sh
+echo $JAVA_HOME
 
-java -version
-mvn -v
+
+## Maven
+
+cd /opt
+sudo wget http://mirrors.ibiblio.org/apache/maven/maven-3/3.9.14/binaries/apache-maven-3.9.14-bin.tar.gz
+sudo tar -xvzf apache-maven-3.9.14-bin.tar.gz
+sudo mv apache-maven-3.9.14 maven
+
+cat <<EOF | sudo tee /etc/profile.d/maven.sh
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=$PATH:$M2_HOME/bin
+EOF
+
+source /etc/profile.d/maven.sh
+mvn -version
+
