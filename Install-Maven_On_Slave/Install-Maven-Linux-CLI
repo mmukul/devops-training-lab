@@ -1,22 +1,16 @@
 #!/bin/bash
 
-### Run on Jenkins Master and Jenkins Slave using CLI on Linux Terminal ###
+### Run on Jenkins Slave using CLI on Linux Terminal ###
 
-sudo yum install -y git java-1.8.0-openjdk-devel
-wget http://mirrors.ibiblio.org/apache/maven/maven-4/4.0.0-rc-5/binaries/apache-maven-4.0.0-rc-5-bin.tar.gz -P /opt
 cd /opt
-
-tar xzvf apache-maven-4.0.0-rc-5-bin.tar.gz
-
-sudo ln -s /opt/apache-maven-4.0.0-rc-5 /opt/maven
+sudo wget http://mirrors.ibiblio.org/apache/maven/maven-3/3.9.14/binaries/apache-maven-3.9.14-bin.tar.gz
+sudo tar -xvzf apache-maven-3.9.14-bin.tar.gz
+sudo mv apache-maven-3.9.14 maven
 
 cat <<EOF | sudo tee /etc/profile.d/maven.sh
-export MAVEN_HOME=/usr/local/apache-maven/apache-maven-4.0.0-rc-5
-export MAVEN=$MAVEN_HOME/bin 
-export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-17-hotspot
-export PATH=$MAVEN:$JAVA_HOME:$PATH
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=$PATH:$M2_HOME/bin
 EOF
-
-sudo chmod +x /etc/profile.d/maven.sh
 
 source /etc/profile.d/maven.sh
