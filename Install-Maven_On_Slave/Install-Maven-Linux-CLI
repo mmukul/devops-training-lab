@@ -3,12 +3,12 @@
 ### Run on Jenkins Master and Jenkins Slave using CLI on Linux Terminal ###
 
 sudo yum install -y git java-1.8.0-openjdk-devel
-wget http://mirrors.ibiblio.org/apache/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz -P /opt
+wget http://mirrors.ibiblio.org/apache/maven/maven-4/4.0.0-rc-5/binaries/apache-maven-4.0.0-rc-5-bin.tar.gz -P /opt
 cd /opt
 
-tar xzvf apache-maven-3.9.9-bin.tar.gz
+tar xzvf apache-maven-4.0.0-rc-5-bin.tar.gz
 
-sudo ln -s /opt/apache-maven-3.9.9 /opt/maven
+sudo ln -s /opt/apache-maven-4.0.0-rc-5 /opt/maven
 
 cat <<EOF | sudo tee /etc/profile.d/maven.sh
 export JAVA_HOME=/usr/lib/jvm/jre-openjdk
