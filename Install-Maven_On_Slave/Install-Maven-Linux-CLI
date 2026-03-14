@@ -11,9 +11,10 @@ tar xzvf apache-maven-4.0.0-rc-5-bin.tar.gz
 sudo ln -s /opt/apache-maven-4.0.0-rc-5 /opt/maven
 
 cat <<EOF | sudo tee /etc/profile.d/maven.sh
-export JAVA_HOME=/usr/lib/jvm/jre-openjdk
-export MAVEN_HOME=/opt/maven
-export PATH=${MAVEN_HOME}/bin:${PATH}
+export MAVEN_HOME=/usr/local/apache-maven/apache-maven-4.0.0-rc-5
+export MAVEN=$MAVEN_HOME/bin 
+export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-17-hotspot
+export PATH=$MAVEN:$JAVA_HOME:$PATH
 EOF
 
 sudo chmod +x /etc/profile.d/maven.sh
