@@ -32,3 +32,8 @@ EOF
 source /etc/profile.d/maven.sh
 mvn -version
 
+cat <<EOF | sudo tee ~/.bashrc
+source /etc/profile.d/java.sh
+source /etc/profile.d/maven.sh:wq
+EOF
+
