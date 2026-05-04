@@ -4,4 +4,4 @@
 Managed Jenkins --> Tools --> Maven installations
 
    Name = MAVEN_HOME
-   MAVEN_HOME = /usr/local/apache-maven/apache-maven-3.9.9
+   MAVEN_HOME = /opt/maven
