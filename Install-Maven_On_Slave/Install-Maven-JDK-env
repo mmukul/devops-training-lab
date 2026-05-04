@@ -19,9 +19,9 @@ echo $JAVA_HOME
 ## Maven
 
 cd /opt
-sudo wget http://mirrors.ibiblio.org/apache/maven/maven-3/3.9.14/binaries/apache-maven-3.9.14-bin.tar.gz
-sudo tar -xvzf apache-maven-3.9.14-bin.tar.gz
-sudo mv apache-maven-3.9.14 maven
+sudo wget http://mirrors.ibiblio.org/apache/maven/maven-4/4.0.0-rc-5/source/apache-maven-4.0.0-rc-5-src.tar.gz
+sudo tar -xvzf apache-maven-4.0.0-rc-5-src.tar.gz
+sudo mv apache-maven-4.0.0-rc-5 maven
 
 cat <<EOF | sudo tee /etc/profile.d/maven.sh
 export M2_HOME=/opt/maven
