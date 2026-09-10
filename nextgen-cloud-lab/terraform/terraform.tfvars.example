@@ -1,0 +1,8 @@
+aws_region           = "ap-south-1"
+project_name         = "nextgen-devsecops-ai-lab"
+instance_type        = "t3.micro"
+student_id           = "student01"
+lab_volume_size      = 20
+admin_api_key        = "CHANGE_ME"
+student_username     = "student01"
+student_password_hash = "SHA256_HEX_HASH_OF_PASSWORD"
